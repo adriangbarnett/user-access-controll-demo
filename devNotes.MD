@@ -1,9 +1,16 @@
 ## DEV NOTES
+...
 
+
+
+
+
+# GIT stuff
 ## update
-git sttus
-git add .
+git status
 git branch -M main
+
+git add .
 git commit -m "message"
 git push -u origin main
 

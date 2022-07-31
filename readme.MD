@@ -30,7 +30,6 @@ contains list of available routes, some routes are gated by authentication check
 ### ./data.js
 contains a list of users to simulate a database
 
-
 ## ./tests/index.requests.rest
 Use this to test the routes. Change the id on the URL to: 1, 2 or 3  then send the request and assert the response.
 user id: 1 is a sustem admin

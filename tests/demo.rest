@@ -1,0 +1,67 @@
+#   ID  ROLE    DESCRIPTION     PROJECT ACCESS      SYSADMIN ACCESS
+#   1   user    basic user      1                   NO
+#   2   user    basic user      1 and 2             NO
+#   3   user    basic user      1  read only        NO
+#   4   admin   admin           all                 NO
+#   5   sysadm  system admin    all                 YES
+
+#---------------------------------------------------- Public Pages -----------------------------------------------
+### Home page
+GET http://localhost:3000/
+
+### test when not authenticated
+GET http://localhost:3000/test
+
+
+#---------------------------------------------------- Protected Pages -----------------------------------------------
+### dashboard
+GET http://localhost:3000/dashboard?id=1
+### user page
+GET http://localhost:3000/user?id=1
+### admin page requires role: admin
+GET http://localhost:3000/admin?id=3
+### system admin page requires role: sysadm
+GET http://localhost:3000/sysadm?id=4
+
+
+#---------------------------------------------------- Project 1 ----------------------------------------------
+### Create project requires: authenticated user
+GET http://localhost:3000/project-create?id=1
+
+### Read: user with id 1 or 2
+GET http://localhost:3000/project-read?projectid=1&id=2
+### Update: user with id 1 or 2
+GET http://localhost:3000/project-update?projectid=1&id=1
+### Delete: user with id 1 or 2
+GET http://localhost:3000/project-delete?projectid=1&id=1
+
+
+#---------------------------------------------------- Project 2 ----------------------------------------------
+### Read user with id 1 only
+GET http://localhost:3000/project-read?projectid=2&id=2
+
+### Update: user with id 1 only
+GET http://localhost:3000/project-update?projectid=2&id=2
+### Delete user with id 1 only
+GET http://localhost:3000/project-delete?projectid=2&id=2
+
+#---------------------------------------------------- Project 1 - items ----------------------------------------------
+### Create item with user id 1 or 2
+GET http://localhost:3000/project-item-create?projectid=1&id=1
+### Read item with user id 1 or 2
+GET http://localhost:3000/project-item-read?projectid=1&itemid=1&id=1
+###  Update item with user id 1 or 2
+GET http://localhost:3000/project-item-update?projectid=1&itemid=1&id=1
+###  Delete item with user id 1 or 2
+GET http://localhost:3000/project-item-delete?projectid=1&itemid=1&id=1
+
+#---------------------------------------------------- Project 1 - items - user 3 with read only ------------------------------
+### Create: User 3 is NOT allowrd to create
+GET http://localhost:3000/project-item-create?projectid=1&id=3
+
+### Read: user 4 can only read
+GET http://localhost:3000/project-item-read?projectid=1&itemid=1&id=3
+###  Update : 3 not allowed to updated
+GET http://localhost:3000/project-item-update?projectid=1&itemid=1&id=3
+###  Delete user 3 not allowed to delete
+GET http://localhost:3000/project-item-delete?projectid=1&itemid=1&id=3
