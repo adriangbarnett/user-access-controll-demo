@@ -27,18 +27,10 @@ if authentication is successful via the router, then the request is passed to th
 ### ./routes/router.js
 contains list of available routes, some routes are gated by authentication checks
 
-
-
-
-
-
 ### ./data.js
 contains a list of users to simulate a database
 
 
-
-
-
-## Testing the requests
-Using ./test.requests.rest change the id on the URL to 1,2 or 3 to test each role trying to access pages that require different access levels.
-
+## ./tests/index.requests.rest
+Use this to test the routes. Change the id on the URL to: 1, 2 or 3  then send the request and assert the response.
+user id: 1 is a sustem admin
