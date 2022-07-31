@@ -1,0 +1,26 @@
+#   ID      USERNAME    ROLE        DESCRIPTION
+#   1                   user        basic user
+#   2                   admin       admin user, has access to admin pages, AND basic users pages
+#   3                   sysam       system admin user, have access to eveything
+
+### Home page
+GET http://localhost:3000/
+
+### test when not authenticated
+GET http://localhost:3000/test
+
+### dashboard
+GET http://localhost:3000/dashboard?id=1
+
+
+### user page
+GET http://localhost:3000/user
+
+
+### user page AS admin
+GET http://localhost:3000/user?id=2
+
+### system admin page
+GET http://localhost:3000/sysadm?id=1
+
+
